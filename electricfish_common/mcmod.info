@@ -1,0 +1,20 @@
+[
+{
+  "modid": "electricfish",
+  "name": "Electric Fishing Pole 2",
+  "description": "A reboot of the old electric fishing pole mod from IndustrialCraft 2",
+  "version": "2.0.0",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "Shalashalska"
+  ],
+  "credits":
+  "logoFile",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
