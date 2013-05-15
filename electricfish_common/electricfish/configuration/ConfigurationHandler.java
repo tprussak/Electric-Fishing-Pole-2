@@ -14,7 +14,7 @@ public class ConfigurationHandler {
                 event.getSuggestedConfigurationFile());
         config.load();
         
-        electricRod = config.get(Strings.ITEM_ID_CONFIG_CATEGORY, "CATEGORY_ITEM", 9500).getInt();
+        electricRod = config.get(Strings.ITEM_ID_CONFIG_CATEGORY, "CATEGORY_ITEM", 16500).getInt();
         
         config.save();
     }
