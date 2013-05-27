@@ -13,6 +13,7 @@ import electricfish.configuration.ConfigurationHandler;
 import electricfish.core.proxy.CommonProxy;
 import electricfish.creativetab.CreativeTabElectricFish;
 import electricfish.item.ModItems;
+import electricfish.item.crafting.ElectricFishCrafting;
 import electricfish.lib.Reference;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, dependencies = "required-after:Forge@[7.7.1.675,)")
@@ -32,6 +33,7 @@ public class ElectricFish {
     @Init
     public void init(FMLInitializationEvent event) {
         ModItems.init(event);
+        ElectricFishCrafting.init();
     }
 
     @PostInit
