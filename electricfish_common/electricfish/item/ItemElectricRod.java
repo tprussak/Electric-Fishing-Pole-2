@@ -21,7 +21,7 @@ import electricfish.util.ElectricFishDamageSource;
 public class ItemElectricRod extends ItemElectricFish implements IElectricItem{
     public ItemElectricRod(int id, String name) {
         super(id, name);
-        this.setMaxDamage(13);
+        this.setMaxDamage(27);
     }
 
     @Override
