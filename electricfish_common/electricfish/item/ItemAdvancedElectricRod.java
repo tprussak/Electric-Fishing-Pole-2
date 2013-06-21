@@ -68,8 +68,8 @@ public class ItemAdvancedElectricRod extends ItemElectricFish implements IElectr
             if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
             {
                 if(ElectricItem.manager.canUse(itemStack, 5000)){
-                    if(world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterStill.blockID){
-                        EntityItem entityItem = new EntityItem(world, movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ, new ItemStack(Item.fishRaw, new Random().nextInt(5) +3));
+                    if(world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterStill.blockID || world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterMoving.blockID){
+                        EntityItem entityItem = new EntityItem(world, movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ, new ItemStack(Item.fishRaw, new Random().nextInt(8)));
                         entityItem.motionX = movingobjectposition.blockX - player.posX*2;
                         entityItem.motionY = movingobjectposition.blockY - player.posY*2;
                         entityItem.motionZ = movingobjectposition.blockZ - player.posZ*2;
