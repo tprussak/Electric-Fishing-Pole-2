@@ -74,7 +74,7 @@ public class ItemAdvancedElectricRod extends ItemElectricFish implements IElectr
                             entityItem.motionX = movingobjectposition.blockX - player.posX*2;
                             entityItem.motionY = movingobjectposition.blockY - player.posY*2;
                             entityItem.motionZ = movingobjectposition.blockZ - player.posZ*2;
-                            ElectricItem.manager.use(itemStack, 20000, player);
+                            ElectricItem.manager.use(itemStack, 10000, player);
                             world.spawnEntityInWorld(entityItem);
 //                            tickTimer = 20;
                             return itemStack;
