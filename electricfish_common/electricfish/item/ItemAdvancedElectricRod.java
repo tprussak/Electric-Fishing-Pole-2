@@ -68,7 +68,7 @@ public class ItemAdvancedElectricRod extends ItemElectricFish implements IElectr
             if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
             {
 //                if(tickTimer == 0){
-                    if(ElectricItem.manager.canUse(itemStack, 20000)){
+                    if(ElectricItem.manager.canUse(itemStack, 10000)){
                         if(world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterStill.blockID || world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterMoving.blockID){
                             EntityItem entityItem = new EntityItem(world, movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ, new ItemStack(Item.fishCooked, new Random().nextInt(8)));
                             entityItem.motionX = movingobjectposition.blockX - player.posX*2;
@@ -76,7 +76,7 @@ public class ItemAdvancedElectricRod extends ItemElectricFish implements IElectr
                             entityItem.motionZ = movingobjectposition.blockZ - player.posZ*2;
                             ElectricItem.manager.use(itemStack, 20000, player);
                             world.spawnEntityInWorld(entityItem);
-//                            tickTimer = 5;
+//                            tickTimer = 20;
                             return itemStack;
                         }
                     }
@@ -103,6 +103,8 @@ public class ItemAdvancedElectricRod extends ItemElectricFish implements IElectr
 //    public void onUpdate(ItemStack itemStack, World world, Entity entity, int slot, boolean held){
 //        if(tickTimer > 0){
 //            tickTimer--;
+//        } else {
+//            tickTimer = 0;
 //        }
 //    }
 }

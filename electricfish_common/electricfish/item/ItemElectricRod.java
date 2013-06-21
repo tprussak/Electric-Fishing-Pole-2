@@ -70,7 +70,7 @@ public class ItemElectricRod extends ItemElectricFish implements IElectricItem{
 //                if(tickTimer == 0){
                     if(ElectricItem.manager.canUse(itemStack, 10000)){
                         if(world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterStill.blockID || world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterMoving.blockID){
-                            EntityItem entityItem = new EntityItem(world, movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ, new ItemStack(Item.fishCooked, new Random().nextInt(4)));
+                            EntityItem entityItem = new EntityItem(world, movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ, new ItemStack(Item.fishCooked, new Random().nextInt(6)));
                             entityItem.motionX = movingobjectposition.blockX - player.posX*2;
                             entityItem.motionY = movingobjectposition.blockY - player.posY*2;
                             entityItem.motionZ = movingobjectposition.blockZ - player.posZ*2;
