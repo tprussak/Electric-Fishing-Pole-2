@@ -67,19 +67,20 @@ public class ItemAdvancedElectricRod extends ItemElectricFish implements IElectr
         {
             if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
             {
-                if(tickTimer == 0){
+//                if(tickTimer == 0){
                     if(ElectricItem.manager.canUse(itemStack, 20000)){
                         if(world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterStill.blockID || world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterMoving.blockID){
-                            EntityItem entityItem = new EntityItem(world, movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ, new ItemStack(Item.fishRaw, new Random().nextInt(8)));
+                            EntityItem entityItem = new EntityItem(world, movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ, new ItemStack(Item.fishCooked, new Random().nextInt(8)));
                             entityItem.motionX = movingobjectposition.blockX - player.posX*2;
                             entityItem.motionY = movingobjectposition.blockY - player.posY*2;
                             entityItem.motionZ = movingobjectposition.blockZ - player.posZ*2;
                             ElectricItem.manager.use(itemStack, 20000, player);
                             world.spawnEntityInWorld(entityItem);
+//                            tickTimer = 5;
                             return itemStack;
                         }
                     }
-                }
+//                }
             }
             return itemStack;
         }
@@ -97,13 +98,11 @@ public class ItemAdvancedElectricRod extends ItemElectricFish implements IElectr
         }
         return false;
     }
-    private int tickTimer = 5;
-    @Override
-    public void onUpdate(ItemStack itemStack, World world, Entity entity, int slot, boolean held){
-        if(held){
-            if(tickTimer > 0){
-                tickTimer--;
-            }
-        }
-    }
+//    private int tickTimer = 5;
+//    @Override
+//    public void onUpdate(ItemStack itemStack, World world, Entity entity, int slot, boolean held){
+//        if(tickTimer > 0){
+//            tickTimer--;
+//        }
+//    }
 }

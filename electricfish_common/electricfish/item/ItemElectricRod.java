@@ -67,7 +67,7 @@ public class ItemElectricRod extends ItemElectricFish implements IElectricItem{
         {
             if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
             {
-                if(tickTimer == 0){
+//                if(tickTimer == 0){
                     if(ElectricItem.manager.canUse(itemStack, 10000)){
                         if(world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterStill.blockID || world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterMoving.blockID){
                             EntityItem entityItem = new EntityItem(world, movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ, new ItemStack(Item.fishCooked, new Random().nextInt(4)));
@@ -76,11 +76,11 @@ public class ItemElectricRod extends ItemElectricFish implements IElectricItem{
                             entityItem.motionZ = movingobjectposition.blockZ - player.posZ*2;
                             ElectricItem.manager.use(itemStack, 10000, player);
                             world.spawnEntityInWorld(entityItem);
-                            tickTimer = 10;
+//                            tickTimer = 10;
                             return itemStack;
                         }
                     }
-                }
+//                }
             }
             return itemStack;
         }
@@ -98,13 +98,11 @@ public class ItemElectricRod extends ItemElectricFish implements IElectricItem{
         }
         return false;
     }
-    private int tickTimer = 10;
-    @Override
-    public void onUpdate(ItemStack itemStack, World world, Entity entity, int slot, boolean held){
-        if(held){
-            if(tickTimer > 0){
-                tickTimer--;
-            }
-        }
-    }
+//    private int tickTimer = 10;
+//    @Override
+//    public void onUpdate(ItemStack itemStack, World world, Entity entity, int slot, boolean held){
+//        if(tickTimer > 0){
+//            tickTimer--;
+//        }
+//    }
 }
