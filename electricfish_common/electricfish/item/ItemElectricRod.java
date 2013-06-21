@@ -46,7 +46,7 @@ public class ItemElectricRod extends ItemElectricFish implements IElectricItem{
 
     @Override
     public int getTier(ItemStack arg0) {
-        return 2;
+        return 1;
     }
 
     @Override
@@ -67,15 +67,18 @@ public class ItemElectricRod extends ItemElectricFish implements IElectricItem{
         {
             if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
             {
-                if(ElectricItem.manager.canUse(itemStack, 5000)){
-                    if(world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterStill.blockID || world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterMoving.blockID){
-                        EntityItem entityItem = new EntityItem(world, movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ, new ItemStack(Item.fishCooked, new Random().nextInt(8)));
-                        entityItem.motionX = movingobjectposition.blockX - player.posX*2;
-                        entityItem.motionY = movingobjectposition.blockY - player.posY*2;
-                        entityItem.motionZ = movingobjectposition.blockZ - player.posZ*2;
-                        ElectricItem.manager.use(itemStack, 5000, player);
-                        world.spawnEntityInWorld(entityItem);
-                        return itemStack;
+                if(tickTimer == 0){
+                    if(ElectricItem.manager.canUse(itemStack, 10000)){
+                        if(world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterStill.blockID || world.getBlockId(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Block.waterMoving.blockID){
+                            EntityItem entityItem = new EntityItem(world, movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ, new ItemStack(Item.fishCooked, new Random().nextInt(4)));
+                            entityItem.motionX = movingobjectposition.blockX - player.posX*2;
+                            entityItem.motionY = movingobjectposition.blockY - player.posY*2;
+                            entityItem.motionZ = movingobjectposition.blockZ - player.posZ*2;
+                            ElectricItem.manager.use(itemStack, 10000, player);
+                            world.spawnEntityInWorld(entityItem);
+                            tickTimer = 10;
+                            return itemStack;
+                        }
                     }
                 }
             }
@@ -94,5 +97,14 @@ public class ItemElectricRod extends ItemElectricFish implements IElectricItem{
             }
         }
         return false;
+    }
+    private int tickTimer = 10;
+    @Override
+    public void onUpdate(ItemStack itemStack, World world, Entity entity, int slot, boolean held){
+        if(held){
+            if(tickTimer > 0){
+                tickTimer--;
+            }
+        }
     }
 }
